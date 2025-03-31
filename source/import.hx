@@ -30,7 +30,6 @@ import sys.FileSystem;
 import funkin.util.modding.FunkScript;
 import funkin.util.modding.ModdingUtil;
 import lime.utils.Assets;
-import openfl.utils.Assets as OpenFlAssets;
 import funkin.util.frontend.FlxColorFix;
 import funkin.util.JsonUtil;
 import funkin.util.Stage;
