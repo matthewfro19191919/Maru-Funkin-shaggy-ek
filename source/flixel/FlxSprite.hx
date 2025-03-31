@@ -16,7 +16,6 @@ import flixel.math.FlxMath;
 import flixel.math.FlxMatrix;
 import flixel.math.FlxPoint;
 import flixel.math.FlxRect;
-import flixel.system.FlxAssets.FlxGraphicAsset;
 import flixel.system.FlxAssets.FlxShader;
 import flixel.util.FlxBitmapDataUtil;
 import flixel.util.FlxColor;
@@ -391,13 +390,11 @@ class FlxSprite extends FlxObject
 	 * @param   SimpleGraphic   The graphic you want to display
 	 *                          (OPTIONAL - for simple stuff only, do NOT use for animated images!).
 	 */
-	public function new(?X:Float = 0, ?Y:Float = 0, ?SimpleGraphic:FlxGraphicAsset)
+	public function new(?X:Float = 0, ?Y:Float = 0)
 	{
 		super(X, Y);
 
 		useFramePixels = FlxG.renderBlit;
-		if (SimpleGraphic != null)
-			loadGraphic(SimpleGraphic);
 	}
 
 	@:noCompletion
@@ -511,9 +508,9 @@ class FlxSprite extends FlxObject
 	 * @param   Key        Set this parameter if you're loading `BitmapData`.
 	 * @return  This `FlxSprite` instance (nice for chaining stuff together, if you're into that).
 	 */
-	public function loadGraphic(Graphic:FlxGraphicAsset, Animated:Bool = false, Width:Int = 0, Height:Int = 0, Unique:Bool = false, ?Key:String):FlxSprite
+	public function loadGraphic(Animated:Bool = false, Width:Int = 0, Height:Int = 0, Unique:Bool = false, ?Key:String):FlxSprite
 	{
-		var graph:FlxGraphic = FlxG.bitmap.add(Graphic, Unique, Key);
+		var graph:FlxGraphic = FlxG.bitmap.add(Unique, Key);
 		if (graph == null)
 			return this;
 
@@ -553,10 +550,10 @@ class FlxSprite extends FlxObject
 	 * @param   Key            Optional, set this parameter if you're loading `BitmapData`.
 	 * @return  This `FlxSprite` instance (nice for chaining stuff together, if you're into that).
 	 */
-	public function loadRotatedGraphic(Graphic:FlxGraphicAsset, Rotations:Int = 16, Frame:Int = -1, AntiAliasing:Bool = false, AutoBuffer:Bool = false,
+	public function loadRotatedGraphic(Rotations:Int = 16, Frame:Int = -1, AntiAliasing:Bool = false, AutoBuffer:Bool = false,
 			?Key:String):FlxSprite
 	{
-		var brushGraphic:FlxGraphic = FlxG.bitmap.add(Graphic, false, Key);
+		var brushGraphic:FlxGraphic = FlxG.bitmap.add(Key);
 		if (brushGraphic == null)
 			return this;
 
