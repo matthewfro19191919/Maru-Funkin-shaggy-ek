@@ -5,6 +5,7 @@ import flixel.FlxG;
 import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
 import flixel.util.FlxArrayUtil;
 import flixel.util.FlxDestroyUtil;
+import flixel.util.FlxSignal;
 import flixel.util.FlxSort;
 
 /**
@@ -79,22 +80,22 @@ class FlxTypedGroup<T:FlxBasic> extends FlxBasic
 	 * A `FlxSignal` that dispatches when a child is added to this group.
 	 * @since 4.4.0
 	 */
-	public var memberAdded(get, never);
+	public var memberAdded(get, never):FlxSignal;
 
 	/**
 	 * A `FlxSignal` that dispatches when a child is removed from this group.
 	 * @since 4.4.0
 	 */
-	public var memberRemoved(get, never);
+	public var memberRemoved(get, never):FlxSignal;
 
 	/**
 	 * Internal variables for lazily creating `memberAdded` and `memberRemoved` signals when needed.
 	 */
 	@:noCompletion
-	var _memberAdded;
+	var _memberAdded:FlxSignal;
 
 	@:noCompletion
-	var _memberRemoved;
+	var _memberRemoved:FlxSignal;
 
 	/**
 	 * Internal helper variable for recycling objects a la `FlxEmitter`.
@@ -907,19 +908,19 @@ class FlxTypedGroup<T:FlxBasic> extends FlxBasic
 	}
 
 	@:noCompletion
-	function get_memberAdded()
+	function get_memberAdded():FlxSignal
 	{
 		if (_memberAdded == null)
-			_memberAdded = new FlxTypedSignal<T->Void>();
+			_memberAdded = new FlxSignal();
 
 		return _memberAdded;
 	}
 
 	@:noCompletion
-	function get_memberRemoved()
+	function get_memberRemoved():FlxSignal
 	{
 		if (_memberRemoved == null)
-			_memberRemoved = new FlxTypedSignal<T->Void>();
+			_memberRemoved = new FlxSignal();
 
 		return _memberRemoved;
 	}
