@@ -27,8 +27,7 @@ jobs:
 
       - name: Install Libraries
         run: |
-          haxe -cp ./actions -D analyzer-optimize -main Main --interp --skip-dependencies
-          haxelib git hxcpp https://github.com/HaxeFoundation/hxcpp.git --quiet --skip-dependencies
+          haxe -cp ./actions -D analyzer-optimize -main Main --interp
           haxelib run lime rebuild hxcpp
           haxelib set hxcpp git
 
