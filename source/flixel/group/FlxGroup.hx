@@ -5,7 +5,7 @@ import flixel.FlxG;
 import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
 import flixel.util.FlxArrayUtil;
 import flixel.util.FlxDestroyUtil;
-import flixel.util.FlxSignal;
+import flixel.util.FlxSignal.FlxTypedSignal;
 import flixel.util.FlxSort;
 
 /**
@@ -80,22 +80,22 @@ class FlxTypedGroup<T:FlxBasic> extends FlxBasic
 	 * A `FlxSignal` that dispatches when a child is added to this group.
 	 * @since 4.4.0
 	 */
-	public var memberAdded(get, never):FlxSignal;
+	public var memberAdded(get, never):FlxTypedSignal<T->Void>;
 
 	/**
 	 * A `FlxSignal` that dispatches when a child is removed from this group.
 	 * @since 4.4.0
 	 */
-	public var memberRemoved(get, never):FlxSignal;
+	public var memberRemoved(get, never):FlxTypedSignal<T->Void>;
 
 	/**
 	 * Internal variables for lazily creating `memberAdded` and `memberRemoved` signals when needed.
 	 */
 	@:noCompletion
-	var _memberAdded:FlxSignal;
+	var _memberAdded:FlxTypedSignal<T->Void>;
 
 	@:noCompletion
-	var _memberRemoved:FlxSignal;
+	var _memberRemoved:FlxTypedSignal<T->Void>;
 
 	/**
 	 * Internal helper variable for recycling objects a la `FlxEmitter`.
@@ -908,19 +908,19 @@ class FlxTypedGroup<T:FlxBasic> extends FlxBasic
 	}
 
 	@:noCompletion
-	function get_memberAdded():FlxSignal
+	function get_memberAdded():FlxTypedSignal<T->Void>
 	{
 		if (_memberAdded == null)
-			_memberAdded = new FlxSignal();
+			_memberAdded = new FlxTypedSignal<T->Void>();
 
 		return _memberAdded;
 	}
 
 	@:noCompletion
-	function get_memberRemoved():FlxSignal
+	function get_memberRemoved():FlxTypedSignal<T->Void>
 	{
 		if (_memberRemoved == null)
-			_memberRemoved = new FlxSignal();
+			_memberRemoved = new FlxTypedSignal<T->Void>();
 
 		return _memberRemoved;
 	}
@@ -938,7 +938,9 @@ class FlxTypedGroupIterator<T>
 	var _cursor:Int;
 	var _length:Int;
 
-	public function new(groupMembers:Array<T>, ?filter:T->Bool)
+	// NOTE: these methods are inlined to ensure there are no allocation when iterating through a group
+	
+	public inline function new(groupMembers:Array<T>, ?filter:T->Bool)
 	{
 		_groupMembers = groupMembers;
 		_filter = filter;
@@ -946,12 +948,12 @@ class FlxTypedGroupIterator<T>
 		_length = _groupMembers.length;
 	}
 
-	public function next()
+	public inline function next()
 	{
 		return hasNext() ? _groupMembers[_cursor++] : null;
 	}
 
-	public function hasNext():Bool
+	public inline function hasNext():Bool
 	{
 		while (_cursor < _length && (_groupMembers[_cursor] == null || _filter != null && !_filter(_groupMembers[_cursor])))
 		{
