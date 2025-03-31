@@ -59,14 +59,14 @@
     {
       "name": "hxvlc",
       "type": "install",
-      "version": nullhxcpp"
+      "version": null
     },
     {
       "name": "moonchart",
       "type": "git",
       "dir": null,
       "ref": "master",
-      "url": "https://github.com/MaybeMaru/
+      "url": "https://github.com/MaybeMaru/moonchart"
     },
     {
       "name": "maru-hscript",
