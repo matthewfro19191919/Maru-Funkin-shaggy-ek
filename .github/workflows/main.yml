@@ -27,7 +27,7 @@ jobs:
 
       - name: Install Libraries
         run: |
-           haxe -cp ./actions -D analyzer-optimize -main Main --interp
+           haxe -cp ./actions -D analyzer-optimize -main Main --interp --quiet
            haxelib git hxcpp https://github.com/HaxeFoundation/hxcpp.git --quiet
            haxelib run lime rebuild hxcpp
            haxelib set hxcpp git
@@ -61,7 +61,7 @@ jobs:
 
       - name: Install Libraries
         run: |
-          haxe -cp ./actions -D analyzer-optimize -main Main --interp
+          haxe -cp ./actions -D analyzer-optimize -main Main --interp --quiet
           haxelib git hxcpp https://github.com/HaxeFoundation/hxcpp.git --quiet
           haxelib run lime rebuild hxcpp
           haxelib set hxcpp git
@@ -104,7 +104,7 @@ jobs:
 
       - name: Install Libraries
         run: |
-          haxe -cp ./actions -D analyzer-optimize -main Main --interp
+          haxe -cp ./actions -D analyzer-optimize -main Main --interp --quiet
           haxelib git hxcpp https://github.com/HaxeFoundation/hxcpp.git --quiet
           haxelib run lime rebuild hxcpp
           haxelib set hxcpp git
