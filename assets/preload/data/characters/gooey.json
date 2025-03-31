@@ -3,7 +3,7 @@
 	"allowLod": false,
 	"isGF": false,
 	"camOffsets": [-10,10],
-	"icon": "gooey",
+	"icon": "icon-gooey",
 	"scale": 6,
 	"anims": [
 		{
