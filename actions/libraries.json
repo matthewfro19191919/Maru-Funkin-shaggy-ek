@@ -20,22 +20,22 @@
     },
     {
       "name": "flixel",
-      "type": "haxelib",
+      "type": "install",
       "version": "4.11.0"
     },
     {
       "name": "flixel-addons",
-      "type": "haxelib",
+      "type": "install",
       "version": "2.11.0"
     },
     {
       "name": "flixel-ui",
-      "type": "haxelib",
+      "type": "install",
       "version": "2.4.0"
     },
     {
       "name": "hscript",
-      "type": "haxelib",
+      "type": "install",
       "version": "2.4.0"
     },
     {
@@ -77,7 +77,7 @@
     },
     {
       "name": "openfl",
-      "type": "haxelib",
+      "type": "install",
       "version": "9.1.0"
     }
   ]
