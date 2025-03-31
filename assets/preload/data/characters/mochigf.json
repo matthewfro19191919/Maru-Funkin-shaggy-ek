@@ -1,6 +1,6 @@
 {
 	"imagePath": "MochiNod",
-	"icon": "gf",
+	"icon": "icon-nmochi",
 	"camOffsets": [-25,50],
 	"isGF": true,
 	"anims": [
