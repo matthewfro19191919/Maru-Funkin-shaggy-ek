@@ -2,14 +2,14 @@ package flixel.input.mouse;
 
 import flixel.util.FlxColor;
 #if FLX_MOUSE
-import flash.Lib;
-import flash.display.Bitmap;
-import flash.display.BitmapData;
-import flash.display.Sprite;
-import flash.display.Stage;
-import flash.events.Event;
-import flash.events.MouseEvent;
-import flash.ui.Mouse;
+import openfl.Lib;
+import openfl.display.Bitmap;
+import openfl.display.BitmapData;
+import openfl.display.Sprite;
+import openfl.display.Stage;
+import openfl.events.Event;
+import openfl.events.MouseEvent;
+import openfl.ui.Mouse;
 import flixel.FlxG;
 import flixel.input.FlxInput.FlxInputState;
 import flixel.input.IFlxInputManager;
