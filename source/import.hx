@@ -121,6 +121,7 @@ import flixel.FlxCamera;
 import flixel.input.keyboard.FlxKey;
 import flixel.util.FlxDestroyUtil;
 import flixel.util.FlxArrayUtil;
+import flixel.graphics.tile.FlxDrawTilesItem;
 
 import haxe.Json;
 
